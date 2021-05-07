@@ -1,0 +1,39 @@
+#include<string.h>
+#include<stdio.h>
+#include<fcntl.h>
+#include<sys/stat.h>
+
+int main(int argc,char* argv[])
+{
+	int mode;
+	
+	if (argc!=3)	printf("error: insufficent arguments\n");
+	
+	if(strcmp(argv[2],"read")==0)
+	{
+		mode=R_OK;
+	}
+	else if (strcmp(argv[2],"write")==0)
+	{	
+		mode=W_OK;
+	}
+	else if(strcmp(argv[2],"execute")==0)
+	{
+		mode=X_OK;
+	}
+	else
+	{
+		printf("incorrect argument");
+	}
+	
+	if(access(argv[1],mode)<0)
+	{
+		printf("our process can not acces this file for %s purpose\n",argv[2]);
+	}
+	else
+	{
+		printf("our process has %s access\n",argv[2]);
+	}
+	return 0;
+}
+

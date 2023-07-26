@@ -1,0 +1,6 @@
+build: 
+	gcc question2.c -o myexe
+run:
+	./myexe ${ARGS}
+delete:
+	rm myexe

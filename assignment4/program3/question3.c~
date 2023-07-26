@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<string.h>
+#include<dirent.h>
+#include<fcntl.h>
+#include<sys/stat.h>
+#include<sys/types.h>
+
+int main(int argc,char * argv[])
+{
+	char buff1[100]={'\0'};
+	char buff2[100]={'\0'};
+	int fdA=0,fdB=0,Acnt=0,Bcnt=0;
+	int ret=0;
+	if(argc!=3)
+	{
+		printf("error: insufficent arguments");
+		return -1;
+	}
+	if((fdA=open(argv[1],O_RDONLY))<0)
+	{
+		printf("unable to open the spcified file\n");
+		return -1;
+	}
+		
+	
+	if((fdB=open(argv[2],O_RDONLY))<0)
+	{
+		printf("unable to open the spcified file\n");
+		return -1;
+	}
+		
+	
+
+ 
+	while((Acnt=read(fdA,buff1,sizeof(buff1)))!=0)
+	{
+		if(Bcnt=read(fdB,buff2,Acnt)!=0)
+		{
+			ret=strcmp(buff1,buff2);
+			if(ret!=0)
+			{
+				printf("files are not similar");
+				break;
+			}
+		}
+	}
+		
+	 
+
+ 
+	close(fdA);
+	close(fdB);
+		
+	return 0;
+} 
+

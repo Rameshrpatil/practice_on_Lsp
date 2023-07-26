@@ -1,0 +1,4 @@
+this program gets two command line arguments from the user and does the following work
+in this program the frist argumment is the file name which user wants to be readed
+and the second argument is the offset from where the 20 bytes must be readed.
+
